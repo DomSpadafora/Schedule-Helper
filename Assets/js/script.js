@@ -3,9 +3,19 @@
 function displayTime() {
   var rightNow = dayjs().format('MMM DD, YYYY [at] hh:mm:ss a');
   $('#currentDay').text(rightNow);
+
+
+
+if (($('.hour')) > (rightNow)) {
+  ($('.hour')).addClass('past');
+} else if (($('.hour')) == (rightNow)) {
+  ($('.hour')).addClass('present');
 }
+}
+
 displayTime()
 setInterval(displayTime, 1000);
+
 
 if(localStorage.hours) {
   let store = JSON.parse(localStorage.hours);
@@ -27,11 +37,7 @@ $('.saveBtn').on('click', function () {
   localStorage.hours = JSON.stringify(store);
 });
 
-if (projectDate.isBefore(today)) {
-  rowEl.addClass('project-late');
-} else if (projectDate.isSame(today)) {
-  rowEl.addClass('project-today');
-}
+
 
 
 
