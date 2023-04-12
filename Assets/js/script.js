@@ -1,11 +1,8 @@
 
-
 function displayTime() {
   var rightNow = dayjs().format('MMM DD, YYYY [at] hh:mm:ss a');
   $('#currentDay').text(rightNow);
 }
-
-
 
 
 if(localStorage.hours) {
@@ -15,6 +12,7 @@ if(localStorage.hours) {
     $('textarea').eq(i).val(store[i])
   }
 }
+
 
 $('.saveBtn').on('click', function () {
   alert('Saved!');
@@ -27,6 +25,7 @@ $('.saveBtn').on('click', function () {
 
   localStorage.hours = JSON.stringify(store);
 });
+
 
 const timer = () => {
   let currentHour = dayjs().hour();
@@ -56,7 +55,6 @@ const timer = () => {
 
 displayTime()
 setInterval(displayTime, 1000);
-
 timer()
 
 
